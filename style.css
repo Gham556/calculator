@@ -1,0 +1,21 @@
+.body {
+    display: flex;
+}
+
+
+
+.buttonContainer {
+    display: flex;
+}
+
+.numberButtons {
+    display: flex;
+}
+
+.operatorButtons {
+    display: flex;
+}
+
+.num {
+    display: flex;
+}
