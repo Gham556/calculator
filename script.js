@@ -18,22 +18,19 @@ const mult = function(a, b) {
 
 
 const numberButtons = document.querySelectorAll('.num');
-const operatorButtons = document.querySelectorAll('.op');
 
+const operatorButtons = document.querySelectorAll('.op');
+const display = document.querySelector('.display');
 // numberButtons.forEach().addEventListener('click', store);
 
+numberButtons.forEach((number) =>{
+    number.addEventListener('click', store);
+});
 
-console.log(numberButtons)
-console.log(operatorButtons)
 
-numberButtons.forEach(setEvent);
-
-function setEvent() {
-    addEventListener('click', store)
-}
-
-function store() {
-    
+function store(press) {
+    press = this.textContent;
+    display.textContent += press;
 }
 
 const operate = function(numOne, operator, num2) {
