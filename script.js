@@ -49,38 +49,52 @@ function reset () {
 
 function end () {
     equation.push(parseInt(display.textContent))
-    switch(equation[1]) {
+    switcher();
+
+   function switcher() {
+
+        switch(equation[1]) {
         case '+': 
         display.textContent = equation[0] + equation[2];
-        for(i in equation) {
-            equation.splice(i);
+        equation.unshift(parseInt(display.textContent));
+            equation.splice(1,3);
+            if (equation.length > 1){
+                switcher();
+            };
             console.log(equation)
-            }
-        break; 
+            break
         case '-': 
         display.textContent = equation[0] - equation[2];
-        for(i in equation) {
-            equation.splice(i);
+        equation.unshift(parseInt(display.textContent));
+            equation.splice(1,3);
+            if (equation.length > 1){
+                switcher();
+            };
             console.log(equation)
-            }
         break
         case '*':
             display.textContent = equation[0] * equation[2];
-            for(i in equation) {
-                equation.splice(i);
+            equation.unshift(parseInt(display.textContent));
+                equation.splice(1,3);
+                if (equation.length > 1){
+                    switcher();
+                };
                 console.log(equation)
-                }
             break
 
         case '/':
             display.textContent = equation[0] / equation[2]; 
-            for(i in equation) {
-                equation.splice(i);
+            equation.unshift(parseInt(display.textContent));
+                equation.splice(1,3);
+                if (equation.length > 1){
+                    switcher();
+                };
                 console.log(equation)
-                }
             break   
     }   
-    
+   
+}
+
 }
 
 function clearArray() {
@@ -90,3 +104,4 @@ function clearArray() {
         }
     display.textContent = equation    
 }
+
