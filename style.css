@@ -1,4 +1,4 @@
-.body {
+body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,23 +8,33 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    max-width: 400px;
+    background-color: rgb(30, 140, 0);
+    flex: 1;
+    height: 500px;
 }
+
 
 .display {
     padding: 16px;
     background-color: antiquewhite;
-    width : 500px;
+    width : 300px;
     margin-top: 32px;
+   
 }
 
 .buttonContainer {
     display: flex;
-    width: 500px;
+    width: 250px;
+    margin: 32px;
+    flex: 1 1 0;
 }
 
 .numberButtons {
     display: flex;
+    flex-wrap: wrap;
+    max-height: 400px;
+    flex: 1 1 0;
 }
 
 .operatorButtons {
@@ -34,5 +44,18 @@
 
 .num {
     display: flex;
-    padding
+    align-items: center;
+    justify-content: center;
+    padding: 25px 35px;
 }
+
+.op {
+    align-items: center;
+    justify-content: center;
+    padding: 25px 35px;
+}
+ .equals {
+    align-items: center;
+    justify-content: center;
+    padding: 25px 35px;
+ }
