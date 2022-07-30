@@ -1,27 +1,9 @@
-
-const add = function(a, b) {
-    return a + b
-      
-  };
-
-  const subtract = function(a, b) {
-	return a - b
-};
-
-const divide = function(a, b) {
-    return a / b 
-};
-
-const mult = function(a, b) {
-    return a * b
-};
-
-
 const numberButtons = document.querySelectorAll('.num');
 const operatorButtons = document.querySelectorAll('.op');
 const display = document.querySelector('.display');
 const equals = document.querySelector('.equals');
 
+const equation = [];
 
 numberButtons.forEach((number) =>{
     number.addEventListener('click', store);
@@ -41,26 +23,44 @@ function store() {
 };
 
 function operate() {
-    initialNum = display.textContent;
+    const initialNum = parseInt(display.textContent);
     display.textContent = this.textContent;
     numberButtons.forEach((number) =>{
         number.removeEventListener('click', store)
         number.addEventListener('click', reset);
     });
-    return initialNum;
-};
-
+    operatorButtons.forEach((number) =>{
+        number.addEventListener('click', operate);
+    });
+   equation.push(initialNum)
+}
 function reset () {
-    operator = display.textContent; 
+   const operator = (display.textContent); 
     display.textContent = this.textContent
     numberButtons.forEach((number) =>{
         number.addEventListener('click', store);
         number.removeEventListener('click', reset)});
    ;
-    return operator
+   equation.push(operator)
 }
 
 function end () {
-    thig = operate() + reset() + display.textContent;
-    display.textContent = thig
-};
+    equation.push(parseInt(display.textContent))
+    switch(equation[1]) {
+        case '+': 
+        display.textContent = equation[0] + equation[2];
+        break; 
+        case '-': 
+        display.textContent = equation[0] - equation[2];
+        case '*':
+            display.textContent = equation[0] * equation[2];
+        case '/':
+            display.textContent = equation[0] / equation[2];    
+    }   
+
+
+
+
+    
+}
+
