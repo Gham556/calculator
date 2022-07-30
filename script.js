@@ -2,6 +2,7 @@ const numberButtons = document.querySelectorAll('.num');
 const operatorButtons = document.querySelectorAll('.op');
 const display = document.querySelector('.display');
 const equals = document.querySelector('.equals');
+const clear = document.querySelector('.clear');
 
 const equation = [];
 
@@ -14,6 +15,8 @@ operatorButtons.forEach((number) =>{
 });
 
 equals.addEventListener('click', end);
+
+clear.addEventListener('click', clearCalc)
 
 function store() { 
     
@@ -55,12 +58,15 @@ function end () {
         case '*':
             display.textContent = equation[0] * equation[2];
         case '/':
-            display.textContent = equation[0] / equation[2];    
-    }   
-
-
-
-
-    
+            display.textContent = equation[0] / equation[2];  
+        case '':
+            clearCalc      
+    }     
 }
 
+function clearCalc () {
+    for (i in equation) {
+    equation.pop(0);
+    }
+    display.textContent = '';
+}
