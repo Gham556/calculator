@@ -16,7 +16,6 @@ operatorButtons.forEach((number) =>{
 
 equals.addEventListener('click', end);
 
-clear.addEventListener('click', clearCalc)
 
 function store() { 
     
@@ -52,21 +51,34 @@ function end () {
     switch(equation[1]) {
         case '+': 
         display.textContent = equation[0] + equation[2];
+        for(i in equation) {
+            equation.splice(i);
+            console.log(equation)
+            }
         break; 
         case '-': 
         display.textContent = equation[0] - equation[2];
+        for(i in equation) {
+            equation.splice(i);
+            console.log(equation)
+            }
+        break
         case '*':
             display.textContent = equation[0] * equation[2];
+            for(i in equation) {
+                equation.splice(i);
+                console.log(equation)
+                }
+            break
+
         case '/':
-            display.textContent = equation[0] / equation[2];  
-        case '':
-            clearCalc      
-    }     
+            display.textContent = equation[0] / equation[2]; 
+            for(i in equation) {
+                equation.splice(i);
+                console.log(equation)
+                }
+            break   
+    }   
+    
 }
 
-function clearCalc () {
-    for (i in equation) {
-    equation.pop(0);
-    }
-    display.textContent = '';
-}
