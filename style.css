@@ -59,3 +59,13 @@ body {
     justify-content: center;
     padding: 25px 35px;
  }
+
+ .clear {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 35px;
+    max-width: 81.42px;
+ }
+
+ 
