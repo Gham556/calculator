@@ -16,6 +16,7 @@ operatorButtons.forEach((number) =>{
 
 equals.addEventListener('click', end);
 
+clear.addEventListener('click', clearArray)
 
 function store() { 
     
@@ -82,3 +83,10 @@ function end () {
     
 }
 
+function clearArray() {
+    for(i in equation) {
+        equation.splice(i);
+        console.log(equation)
+        }
+    display.textContent = equation    
+}
